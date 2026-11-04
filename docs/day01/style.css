@@ -1,0 +1,203 @@
+:root {
+  --surface: #0b1622;
+  --card: rgba(11, 22, 34, 0.92);
+  --line: #2c3a4a;
+  --text: #e8eef4;
+  --muted: #9aaabd;
+  --link: #8fc1ff;
+  --project: #c7d0db;
+  --mapped: #199e70;
+  --image: #3987e5;
+  --cloud: #d95926;
+  --tract: #3cc28c;
+  --story-width: 26.25rem;
+}
+
+* { box-sizing: border-box; }
+
+/* Text and the panel scale with the window: 16px up to 1280px wide, rising to 20px. */
+html { font-size: clamp(1rem, 0.45vw + 0.640625rem, 1.25rem); }
+
+html, body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+  line-height: 1.55;
+}
+
+#map {
+  position: fixed;
+  inset: 0;
+}
+
+/* One panel beside the map: title, chapter tabs, the current card, Back/Next. */
+#panel {
+  position: fixed;
+  z-index: 1;
+  top: 24px;
+  bottom: 24px;
+  left: 24px;
+  width: var(--story-width);
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.masthead { padding: 1.25rem 1.5rem 0.75rem; }
+.masthead .credit { margin: 0; }
+
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  padding: 0.25rem 1.5rem 0.875rem;
+  border-bottom: 1px solid var(--line);
+}
+.steps button {
+  font: inherit;
+  font-size: 0.8125rem;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.1875rem 0.625rem;
+  cursor: pointer;
+}
+.steps button:hover { color: var(--text); border-color: var(--muted); }
+.steps button[aria-selected="true"] { color: var(--surface); background: var(--text); border-color: var(--text); }
+.steps button:focus-visible, .pager button:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+.cards { flex: 1; overflow-y: auto; padding: 1.25rem 1.5rem; }
+
+.jump { display: flex; align-items: center; gap: 0.5rem; color: var(--muted); font-size: 0.8125rem; margin-bottom: 0.875rem; }
+.jump select {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  font-size: 0.8125rem;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.25rem 0.375rem;
+}
+
+.popup-jump {
+  font: inherit;
+  font-size: 0.8125rem;
+  color: var(--surface);
+  background: var(--text);
+  border: 0;
+  border-radius: 6px;
+  padding: 0.25rem 0.625rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+.chapter[hidden] { display: none; }
+
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.pager button {
+  font: inherit;
+  font-size: 0.9375rem;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.4375rem 0.875rem;
+  cursor: pointer;
+}
+.pager button:hover:not(:disabled) { border-color: var(--link); color: var(--link); }
+.pager button:disabled { opacity: 0.35; cursor: default; }
+#step-count { color: var(--muted); font-size: 0.875rem; }
+
+h1 { font-size: 1.875rem; line-height: 1.1; margin: 0 0 0.5rem; }
+h2 { font-size: 1.4375rem; line-height: 1.2; margin: 0 0 0.625rem; }
+p { margin: 0 0 0.75rem; }
+
+.kicker, .place {
+  color: var(--muted);
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.375rem;
+}
+
+.dek { font-size: 1.0625rem; color: var(--text); }
+.credit, .note { color: var(--muted); font-size: 0.875rem; }
+a { color: var(--link); }
+
+.facts { padding-left: 1.125rem; margin: 0 0 0.75rem; }
+.facts li { margin-bottom: 0.375rem; }
+
+.legend { list-style: none; padding: 0; margin: 0.875rem 0 0; font-size: 0.875rem; color: var(--text); }
+.legend li { display: flex; align-items: center; gap: 0.625rem; margin-bottom: 0.375rem; }
+.swatch { display: inline-block; flex: none; }
+.swatch.dot { width: 10px; height: 10px; border-radius: 50%; }
+.swatch.project { background: var(--project); }
+.swatch.tract { background: var(--tract); width: 0.375rem; height: 0.375rem; margin: 0 0.125rem; }
+.swatch.image { background: var(--image); }
+.swatch.other { background: var(--project); }
+.swatch.ring { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--mapped); }
+.swatch.line { width: 14px; height: 0; border-top: 2px solid var(--project); }
+.swatch.fill.cloud { width: 14px; height: 10px; background: rgba(217, 89, 38, 0.45); border: 1.5px solid var(--cloud); }
+
+.links { display: flex; flex-direction: column; align-items: flex-start; gap: 0.375rem; margin-top: 0.875rem; }
+
+/* Marks a link that opens in a new tab. */
+.ext { width: 0.8em; height: 0.8em; margin-left: 0.3em; vertical-align: -0.05em; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.maplibregl-popup-content {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  max-width: 280px;
+  padding: 0.75rem 0.875rem;
+}
+.maplibregl-popup-tip { border-top-color: var(--line) !important; border-bottom-color: var(--line) !important; }
+.maplibregl-popup-close-button { color: var(--muted); font-size: 1.125rem; }
+.popup-title { font-weight: 600; margin-bottom: 0.25rem; }
+.popup-meta { color: var(--muted); margin-bottom: 0.5rem; }
+.popup-links a { display: block; margin-top: 0.125rem; }
+.maplibregl-ctrl-attrib { background: rgba(11, 22, 34, 0.8) !important; color: var(--muted); }
+.maplibregl-ctrl-attrib a { color: var(--muted); }
+/* Keep the written-out credits to the right of the panel, so none are hidden behind it. */
+@media (min-width: 761px) {
+  .maplibregl-ctrl-bottom-right .maplibregl-ctrl-attrib {
+    max-width: calc(100vw - var(--story-width) - 24px - 24px);
+  }
+}
+
+/* Phones: the map holds the top half; the panel fills the bottom half. */
+@media (max-width: 760px) {
+  #map { bottom: auto; height: 50vh; height: 50dvh; border-bottom: 1px solid var(--line); }
+  #panel { top: 50vh; top: 50dvh; bottom: 0; left: 0; right: 0; width: auto; border: 0; border-radius: 0; }
+  .masthead { padding: 0.75rem 1rem 0.375rem; }
+  .masthead .kicker, .masthead .credit { display: none; }
+  h1 { font-size: 1.25rem; margin: 0; }
+  .steps { flex-wrap: nowrap; overflow-x: auto; padding: 0.375rem 1rem 0.625rem; }
+  .steps button { flex: none; }
+  .cards { padding: 0.875rem 1rem; }
+  .pager { padding: 0.5rem 1rem; }
+}

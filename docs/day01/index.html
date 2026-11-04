@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DesignSafe on the Map</title>
+  <meta name="description" content="A step-by-step story of DesignSafe published projects and their Hazmapper maps, from every project with a place down to single point clouds.">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="style.css?v=14">
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/pmtiles@3.2.0/dist/pmtiles.js"></script>
+</head>
+<body>
+  <div id="map" role="region" aria-label="Map of DesignSafe projects and Hazmapper features"></div>
+
+  <aside id="panel">
+    <header class="masthead">
+      <p class="kicker">#30DayMapChallenge · Day 1 · Points</p>
+      <h1>DesignSafe on the map</h1>
+      <p class="credit">Data from the <a href="https://www.designsafe-ci.org/" target="_blank" rel="noopener">NHERI DesignSafe</a> Data Depot and its Hazmapper maps.</p>
+    </header>
+
+    <nav class="steps" role="tablist" aria-label="Chapters"></nav>
+
+    <div class="cards">
+      <section class="chapter" data-chapter="projects" data-label="Projects">
+        <h2>Every project with a place</h2>
+        <p>The DesignSafe Data Depot holds <strong data-stat="published_projects">1,680</strong> published natural hazards projects. <strong data-stat="located_projects">262</strong> of them record where their event happened. Each dot here is one of those places.</p>
+        <ul class="legend"><li><span class="swatch dot project"></span>Project location</li></ul>
+      </section>
+
+      <section class="chapter" data-chapter="mapped" data-label="Maps" hidden>
+        <p><strong data-stat="mapped_projects">36</strong> of those projects publish a public Hazmapper map: <strong data-stat="maps">37</strong> maps in all, holding <strong data-stat="features">89,696</strong> features. Hazmapper places field data, such as photos, point clouds and streetview imagery, on the map where it was collected.</p>
+        <p>Next, browse all <span data-stat="maps">37</span> maps, largest first. Size here is the number of features: a point cloud counts as one, the same as a photo.</p>
+        <p>Click a ring to jump to its map, or a dot to find the project on DesignSafe.</p>
+        <ul class="legend">
+          <li><span class="swatch dot project"></span>Project location</li>
+          <li><span class="swatch ring"></span>Hazmapper map</li>
+        </ul>
+      </section>
+
+      <section class="chapter outro" data-chapter="outro" data-label="About" hidden>
+        <h2>About this map</h2>
+        <p>The data comes from projects published in the <a href="https://www.designsafe-ci.org/" target="_blank" rel="noopener">DesignSafe</a> Data Depot Repository and their public Hazmapper maps. DesignSafe is the cyberinfrastructure of the NSF-funded Natural Hazards Engineering Research Infrastructure (NHERI) (Rathje et al., 2017, <a href="https://doi.org/10.1061/(ASCE)NH.1527-6996.0000246" target="_blank" rel="noopener">doi:10.1061/(ASCE)NH.1527-6996.0000246</a>). Each map links to its published project, which gives the dataset's DOI and citation.</p>
+        <ul class="facts">
+          <li><strong>Project locations:</strong> <span data-stat="located_projects">262</span> of the <span data-stat="published_projects">1,680</span> projects published in the <a href="https://www.designsafe-ci.org/data/browser/public/" target="_blank" rel="noopener">Data Depot Repository</a> have a location. Snapshot taken 28 Oct 2026.</li>
+          <li><strong>Hazmapper features:</strong> <span id="archive-status">GeoAPI published-maps archive.</span></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="pager">
+      <button type="button" id="prev" aria-label="Previous chapter">← Back</button>
+      <span id="step-count" aria-live="polite"></span>
+      <button type="button" id="next" aria-label="Next chapter">Next →</button>
+    </div>
+  </aside>
+
+  <!-- Bump ?v= when style.css or story.js change, so browsers don't keep a cached copy. -->
+  <script src="story.js?v=13"></script>
+</body>
+</html>

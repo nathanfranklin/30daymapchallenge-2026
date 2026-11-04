@@ -1,0 +1,7 @@
+data/
+*.tif
+*.las
+*.laz
+.DS_Store
+*.nc
+.idea/
