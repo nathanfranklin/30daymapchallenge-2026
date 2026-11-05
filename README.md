@@ -2,7 +2,7 @@
 
 My maps for the [#30DayMapChallenge](https://30daymapchallenge.com/), November 2026.
 
-## Day 1 · Points: DesignSafe on the map
+## Day 1 · Points: DesignSafe’s published projects, mapped
 
 A step-by-step web map of projects published in the [NHERI DesignSafe](https://www.designsafe-ci.org/) Data Depot Repository and their public Hazmapper maps.
 

@@ -1,4 +1,4 @@
-// DesignSafe on the map: a step-by-step story over MapLibre.
+// DesignSafe’s published projects, mapped: a step-by-step story over MapLibre.
 //
 // All data is served from the 30day-map-data-2026 repo on GitHub Pages, so this page
 // doesn't depend on geoapi:
