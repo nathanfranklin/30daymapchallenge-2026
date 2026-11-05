@@ -17,6 +17,7 @@ A step-by-step web map of projects published in the [NHERI DesignSafe](https://w
 
 **Hazmapper maps and features (archive built 18 Aug 2026)**
 - **Archive:** GeoAPI, Hazmapper's backend, builds a nightly PMTiles archive of every feature in the public Hazmapper maps of published projects. Its current address is listed at `https://hazmapper.tacc.utexas.edu/geoapi/designsafe/published-maps/pmtiles`. The map uses an unchanged copy of the archive built 18 Aug 2026: 37 maps from 36 projects, 89,696 features.
-- **Map list and counts:** decoded from the archive's most detailed tiles (zoom 14), one point per feature. That gives each map's feature counts by type, its extent (the middle 96% of its points) and its rank by size.
+- **Map list and counts:** decoded from the archive's most detailed tiles (zoom 14), one point per feature. That gives each map's feature counts by type and its extent (the middle 96% of its points).
+- **Order:** the Browse steps run newest first, by each project's publication date in the DesignSafe list.
 
 Data comes from DesignSafe (Rathje et al., 2017, [doi:10.1061/(ASCE)NH.1527-6996.0000246](https://doi.org/10.1061/(ASCE)NH.1527-6996.0000246)) and each published project's authors; see each project's landing page for its citation and licence.

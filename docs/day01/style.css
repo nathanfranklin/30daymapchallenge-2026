@@ -182,6 +182,9 @@ a { color: var(--link); }
 .popup-links a { display: block; margin-top: 0.125rem; }
 .maplibregl-ctrl-attrib { background: rgba(11, 22, 34, 0.8) !important; color: var(--muted); }
 .maplibregl-ctrl-attrib a { color: var(--muted); }
+/* MapLibre's compact (ⓘ) credits set black text and a black icon; match the dark theme instead. */
+.maplibregl-ctrl-attrib.maplibregl-compact { color: var(--muted); }
+.maplibregl-ctrl-attrib.maplibregl-compact .maplibregl-ctrl-attrib-button { filter: invert(1); }
 /* Keep the written-out credits to the right of the panel, so none are hidden behind it. */
 @media (min-width: 761px) {
   .maplibregl-ctrl-bottom-right .maplibregl-ctrl-attrib {

@@ -6,9 +6,11 @@
   <title>DesignSafe on the Map</title>
   <meta name="description" content="A step-by-step story of DesignSafe published projects and their Hazmapper maps, from every project with a place down to single point clouds.">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="style.css?v=14">
+  <link rel="stylesheet" href="style.css?v=15">
   <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
   <script src="https://unpkg.com/pmtiles@3.2.0/dist/pmtiles.js"></script>
+  <!-- Visit counts (GoatCounter: no cookies, ignores localhost). story.js also counts each chapter opened. -->
+  <script data-goatcounter="https://nathanfranklin.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
   <div id="map" role="region" aria-label="Map of DesignSafe projects and Hazmapper features"></div>
@@ -31,7 +33,7 @@
 
       <section class="chapter" data-chapter="mapped" data-label="Maps" hidden>
         <p><strong data-stat="mapped_projects">36</strong> of those projects publish a public Hazmapper map: <strong data-stat="maps">37</strong> maps in all, holding <strong data-stat="features">89,696</strong> features. Hazmapper places field data, such as photos, point clouds and streetview imagery, on the map where it was collected.</p>
-        <p>Next, browse all <span data-stat="maps">37</span> maps, largest first. Size here is the number of features: a point cloud counts as one, the same as a photo.</p>
+        <p>Next, browse all <span data-stat="maps">37</span> maps, newest first, by the date each project was published.</p>
         <p>Click a ring to jump to its map, or a dot to find the project on DesignSafe.</p>
         <ul class="legend">
           <li><span class="swatch dot project"></span>Project location</li>
@@ -57,6 +59,6 @@
   </aside>
 
   <!-- Bump ?v= when style.css or story.js change, so browsers don't keep a cached copy. -->
-  <script src="story.js?v=13"></script>
+  <script src="story.js?v=16"></script>
 </body>
 </html>

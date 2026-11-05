@@ -6,7 +6,10 @@
 //   *.pmtiles      a copy of the GeoAPI published-maps archive
 
 const DATA_REPO = "https://nathanfranklin.github.io/30day-map-data-2026/day1_designsafe/";
-const DATA_BASE = `${DATA_REPO}story/`;
+// For testing rebuilt JSON before it's pushed: on localhost only, ?data=<url> reads the
+// story/*.json files from there instead (e.g. a local server with CORS). Ignored on the live site.
+const IS_LOCAL = ["127.0.0.1", "localhost"].includes(location.hostname);
+const DATA_BASE = (IS_LOCAL && new URLSearchParams(location.search).get("data")) || `${DATA_REPO}story/`;
 const ARCHIVE = {
   url: `${DATA_REPO}published_ds_maps_20260818T131449Z.pmtiles`,
   generated_at: "2026-08-18T13:14:49Z",
@@ -253,6 +256,10 @@ function fillStoryText() {
 
 const mapChapterId = (m) => `map-${m.uuid.slice(0, 8)}`;
 
+// "2024-11-05" -> "5 Nov 2024". Parsed as UTC so the day doesn't shift with the viewer's time zone.
+const publishedDate = (iso) =>
+  new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+
 function countsText(counts) {
   return Object.entries(counts)
     .map(([type, n]) => {
@@ -279,7 +286,7 @@ function legendHtml(m) {
 function buildMapChapters() {
   const outro = document.querySelector('.chapter[data-chapter="outro"]');
   const options = mapsList
-    .map((m) => `<option value="${mapChapterId(m)}">${m.rank}. ${escapeHtml(m.map_name)}</option>`)
+    .map((m) => `<option value="${mapChapterId(m)}">${m.rank}. ${escapeHtml(m.map_name)} · ${escapeHtml(m.id)}</option>`)
     .join("");
   for (const m of mapsList) {
     const id = mapChapterId(m);
@@ -299,10 +306,10 @@ function buildMapChapters() {
     section.dataset.label = "Browse";
     section.innerHTML = `
       <label class="jump">Jump to <select aria-label="Jump to a map">${options}</select></label>
-      <p class="place">Map ${m.rank} of ${mapsList.length} · ${fmt(m.n)} ${m.n === 1 ? "feature" : "features"}</p>
+      <p class="place">Map ${m.rank} of ${mapsList.length} · ${escapeHtml(m.id)} · Published ${publishedDate(m.published)}</p>
       <h2>${escapeHtml(m.map_name)}</h2>
       <p>${escapeHtml(m.title)}</p>
-      <p class="note">${escapeHtml(countsText(m.counts))}</p>
+      <p class="note">${fmt(m.n)} ${m.n === 1 ? "feature" : "features"}: ${escapeHtml(countsText(m.counts))}</p>
       ${legendHtml(m)}
       <div class="links">
         ${link(m.ds_url, `Open published project ${m.id}`)}
@@ -399,6 +406,19 @@ function showStep(index) {
   history.replaceState(null, "", `#${section.dataset.chapter}`);
   currentChapter = section.dataset.chapter;
   applyChapter(currentChapter);
+  countChapter(section);
+}
+
+// GoatCounter counts page loads by itself; chapter changes only change the #hash, so count
+// each one as an event (path "/…/day01/#map-7073c5aa"). Skipped until count.js has loaded,
+// and GoatCounter ignores localhost.
+function countChapter(section) {
+  if (!window.goatcounter?.count) return;
+  window.goatcounter.count({
+    path: `${location.pathname}#${section.dataset.chapter}`,
+    title: section.querySelector("h2")?.textContent || section.dataset.label,
+    event: true,
+  });
 }
 
 function buildSteps() {
