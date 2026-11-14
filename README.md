@@ -20,3 +20,11 @@ python3 -m http.server 8765 --directory docs
 ```
 
 Then open http://127.0.0.1:8765/day01/.
+
+## Day 5 · Sight: Fussball stickers around Galway
+
+Fussball stickers I've photographed around Galway, where each one was, and each club's stadium.
+
+- **Live:** https://nathanfranklin.github.io/30daymapchallenge-2026/day05/
+- **Code:** [`docs/day05/`](docs/day05/) (MapLibre GL JS, OpenStreetMap tiles)
+- **Static map, data and scripts:** [`day05_stickers/`](day05_stickers/)

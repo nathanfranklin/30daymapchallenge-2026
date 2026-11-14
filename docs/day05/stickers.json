@@ -1,0 +1,186 @@
+{
+ "galway": [
+  -9.0492,
+  53.2744
+ ],
+ "stickers": [
+  {
+   "id": "sticker-001",
+   "n": 1,
+   "club": "Dynamo Dresden",
+   "lon": -8.929889,
+   "lat": 53.267589,
+   "photo": "photos/sticker-001.jpg"
+  },
+  {
+   "id": "sticker-002",
+   "n": 2,
+   "club": "FK Austria Wien",
+   "lon": -8.929917,
+   "lat": 53.267058,
+   "photo": "photos/sticker-002.jpg"
+  },
+  {
+   "id": "sticker-003",
+   "n": 3,
+   "club": "Karlsruher SC",
+   "lon": -9.051689,
+   "lat": 53.271153,
+   "photo": "photos/sticker-003.jpg"
+  },
+  {
+   "id": "sticker-004",
+   "n": 4,
+   "club": "Borussia Dortmund",
+   "lon": -9.053633,
+   "lat": 53.271839,
+   "photo": "photos/sticker-004.jpg"
+  },
+  {
+   "id": "sticker-005",
+   "n": 5,
+   "club": "Waldhof Mannheim",
+   "lon": -8.880311,
+   "lat": 53.227702,
+   "photo": "photos/sticker-005.jpg"
+  },
+  {
+   "id": "sticker-006",
+   "n": 6,
+   "club": "Waldhof Mannheim",
+   "lon": -8.880311,
+   "lat": 53.227702,
+   "photo": "photos/sticker-006.jpg"
+  },
+  {
+   "id": "sticker-007",
+   "n": 7,
+   "club": "FC St. Pauli",
+   "lon": -9.054367,
+   "lat": 53.272053,
+   "photo": "photos/sticker-007.jpg"
+  },
+  {
+   "id": "sticker-008",
+   "n": 8,
+   "club": "Babelsberg 03",
+   "lon": -9.055172,
+   "lat": 53.27185,
+   "photo": "photos/sticker-008.jpg"
+  },
+  {
+   "id": "sticker-009",
+   "n": 9,
+   "club": "FC St. Pauli",
+   "lon": -9.060403,
+   "lat": 53.269919,
+   "photo": "photos/sticker-009.jpg"
+  },
+  {
+   "id": "sticker-010",
+   "n": 10,
+   "club": "SG DJK Neustadt-Fernthal",
+   "lon": -9.051169,
+   "lat": 53.272625,
+   "photo": "photos/sticker-010.jpg"
+  },
+  {
+   "id": "sticker-011",
+   "n": 11,
+   "club": "Hertha BSC",
+   "lon": -9.050694,
+   "lat": 53.273731,
+   "photo": "photos/sticker-011.jpg"
+  },
+  {
+   "id": "sticker-012",
+   "n": 12,
+   "club": "Eintracht Braunschweig",
+   "lon": -9.051917,
+   "lat": 53.273,
+   "photo": "photos/sticker-012.jpg"
+  }
+ ],
+ "clubs": {
+  "Babelsberg 03": {
+   "label": "SV Babelsberg 03",
+   "ground": "Karl-Liebknecht-Stadion",
+   "wikidata": "Q571553",
+   "lon": 13.094806,
+   "lat": 52.399083,
+   "km": 1485
+  },
+  "Borussia Dortmund": {
+   "label": "Borussia Dortmund",
+   "ground": "Westfalenstadion",
+   "wikidata": "Q41420",
+   "lon": 7.451667,
+   "lat": 51.4925,
+   "km": 1135
+  },
+  "Dynamo Dresden": {
+   "label": "Dynamo Dresden",
+   "ground": "Rudolf-Harbig-Stadion",
+   "wikidata": "Q141931",
+   "lon": 13.747778,
+   "lat": 51.040278,
+   "km": 1568
+  },
+  "Eintracht Braunschweig": {
+   "label": "Eintracht Braunschweig",
+   "ground": "Eintracht-Stadion",
+   "wikidata": "Q154053",
+   "lon": 10.521389,
+   "lat": 52.29,
+   "km": 1317
+  },
+  "FC St. Pauli": {
+   "label": "FC St. Pauli",
+   "ground": "Millerntor-Stadion",
+   "wikidata": "Q6463",
+   "lon": 9.967778,
+   "lat": 53.554444,
+   "km": 1257
+  },
+  "FK Austria Wien": {
+   "label": "FK Austria Wien",
+   "ground": "Generali Arena",
+   "wikidata": "Q131209",
+   "lon": 16.386694,
+   "lat": 48.162306,
+   "km": 1867
+  },
+  "Hertha BSC": {
+   "label": "Hertha BSC",
+   "ground": "Berlin Olympic Stadium",
+   "wikidata": "Q102720",
+   "lon": 13.239444444,
+   "lat": 52.514722222,
+   "km": 1491
+  },
+  "Karlsruher SC": {
+   "label": "Karlsruher SC",
+   "ground": "Wildparkstadion",
+   "wikidata": "Q105853",
+   "lon": 8.413055555,
+   "lat": 49.02,
+   "km": 1303
+  },
+  "SG DJK Neustadt-Fernthal": {
+   "label": "DJK Fernthal 1919",
+   "ground": "Am Alten Hahn 3, Neustadt (Wied)-Borscheid",
+   "wikidata": "",
+   "lon": 7.457321,
+   "lat": 50.595964,
+   "km": 1167
+  },
+  "Waldhof Mannheim": {
+   "label": "SV Waldhof Mannheim",
+   "ground": "Carl-Benz-Stadion",
+   "wikidata": "Q170134",
+   "lon": 8.5025,
+   "lat": 49.479444,
+   "km": 1285
+  }
+ }
+}

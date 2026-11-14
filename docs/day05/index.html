@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fussball stickers around Galway</title>
+  <meta name="description" content="Fussball stickers photographed around Galway, and each club’s stadium. #30DayMapChallenge Day 5: Sight.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nathanfranklin.github.io/30daymapchallenge-2026/day05/">
+  <meta property="og:title" content="Fussball stickers around Galway">
+  <meta property="og:description" content="Fussball stickers photographed around Galway, and each club’s stadium. #30DayMapChallenge Day 5: Sight.">
+  <meta property="og:image" content="https://nathanfranklin.github.io/30daymapchallenge-2026/day05/preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Map of Fussball stickers photographed around Galway, with lines to each club’s stadium in Germany and Austria, and a photo of each sticker.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="style.css?v=3">
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <!-- Visit counts (GoatCounter: no cookies, ignores localhost). -->
+  <script data-goatcounter="https://nathanfranklin.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+  <aside id="panel">
+    <header class="masthead">
+      <p class="kicker">#30DayMapChallenge · Day 5 · Sight</p>
+      <h1>Fussball stickers around Galway</h1>
+    </header>
+
+    <div id="card" aria-live="polite"></div>
+
+    <nav class="pager" aria-label="Stickers">
+      <button type="button" id="prev">Back</button>
+      <span id="count"></span>
+      <button type="button" id="next">Next</button>
+    </nav>
+  </aside>
+
+  <section class="map-pane">
+    <div id="galway-map" class="map" role="region" aria-label="Map of where each sticker was photographed"></div>
+    <p class="map-label">Where it was</p>
+  </section>
+  <section class="map-pane">
+    <div id="ground-map" class="map" role="region" aria-label="Map of each club’s stadium"></div>
+    <p class="map-label">Club’s stadium</p>
+  </section>
+
+  <script src="app.js?v=6"></script>
+</body>
+</html>
