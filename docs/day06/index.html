@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ireland’s ring forts and the Ordnance Survey</title>
+  <meta name="description" content="Every ring fort mapped in OpenStreetMap on the island of Ireland, most of them derived from Ordnance Survey maps. See each one on the 1940 War Office map, the Ordnance Survey six-inch sheets or aerial imagery.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nathanfranklin.github.io/30daymapchallenge-2026/day06/">
+  <meta property="og:title" content="Ireland’s ring forts and the Ordnance Survey">
+  <meta property="og:description" content="Every ring fort in OpenStreetMap on the island of Ireland, over the old Ordnance Survey and War Office maps most of them were derived from.">
+  <meta property="og:image" content="https://nathanfranklin.github.io/30daymapchallenge-2026/day06/preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A double ring fort in Co. Cork on the Ordnance Survey six-inch 1st and 2nd edition maps, with its OpenStreetMap outlines drawn on top.">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+</head>
+<body>
+  <div id="map" role="region" aria-label="Map of ring forts in OpenStreetMap"></div>
+
+  <aside id="panel">
+    <button id="toggle" aria-expanded="true" aria-controls="panel-body">Hide panel</button>
+    <div id="panel-body">
+      <p class="kicker">#30DayMapChallenge · Ring forts</p>
+      <h1>Ireland’s ring forts and the Ordnance Survey</h1>
+      <p><strong id="count">17,007</strong> ring forts are mapped in OpenStreetMap, most of them derived from Ordnance Survey maps.</p>
+      <p class="note">For the official record of every known fort in the Republic, use the National Monuments Service’s <a href="https://maps.archaeology.ie/HistoricEnvironment/" target="_blank" rel="noopener">Historic Environment Viewer</a>.</p>
+
+      <div class="actions">
+        <button id="random">Go to a random fort</button>
+      </div>
+
+      <section id="selected" class="selected" hidden>
+        <button type="button" class="close" aria-label="Clear selection">×</button>
+        <h2></h2>
+        <dl></dl>
+        <div class="links"><button type="button" class="zoom">Zoom to it</button> <a class="osm" target="_blank" rel="noopener"></a> <a class="hev" target="_blank" rel="noopener" hidden></a></div>
+      </section>
+
+      <h2>Background</h2>
+      <fieldset id="layers">
+        <label><input type="radio" name="layer" value="os1"> Ordnance Survey six-inch, 1st edition (1830s–40s) <span class="note">National Library of Scotland, CC-BY</span></label>
+        <label><input type="radio" name="layer" value="os2" checked> Ordnance Survey six-inch, 2nd edition (1888–1915) <span class="note">National Library of Scotland, CC-BY. The War Office map was reduced from sheets of about this date</span></label>
+        <label><input type="radio" name="layer" value="waroffice"> 1940 War Office map (GSGS 3906) <span class="note">Glucksman Map Library, TCD, via mapwarper</span></label>
+        <label><input type="radio" name="layer" value="imagery"> Aerial imagery <span class="note">Esri World Imagery</span></label>
+        <label><input type="radio" name="layer" value="osm"> OpenStreetMap <span class="note">The standard map from openstreetmap.org</span></label>
+      </fieldset>
+
+      <h2>What the fort’s source tag says</h2>
+      <ul class="legend">
+        <li><span class="swatch" style="--c: var(--war-office)"></span>British War Office map</li>
+        <li><span class="swatch" style="--c: var(--os)"></span>Ordnance Survey 1st/2nd edition</li>
+        <li><span class="swatch" style="--c: var(--other)"></span>Aerial imagery, National Monuments Service, survey, books</li>
+        <li><span class="swatch" style="--c: var(--none)"></span>No source tag</li>
+      </ul>
+
+      <details class="story">
+        <summary>Where the data comes from</summary>
+        <p>How most of these forts got into OpenStreetMap:</p>
+        <ol class="timeline">
+          <li><b>1829–42.</b> The Ordnance Survey maps Ireland at six inches to the mile, forts included. About 4,700 forts here were derived from its 1st or 2nd edition.</li>
+          <li><b>From 1940.</b> The War Office shrinks the c.1910 sheets to 1:25,000 (GSGS 3906).</li>
+          <li><b>2010s.</b> Trinity College Dublin gives its copies to OSM Ireland. Volunteers line them up on <a href="https://mapwarper.net/" target="_blank" rel="noopener">mapwarper.net</a> to map <a href="https://www.townlands.ie/" target="_blank" rel="noopener">townlands</a>, and trace forts along the way: about 5,300 here.</li>
+          <li><b>2021 → 2026.</b> About 5,000 forts mapped (<a href="https://www.openstreetmap.org/user/b-unicycling/diary/395504" target="_blank" rel="noopener">source</a>), then 17,007 by 6 Nov 2026.</li>
+        </ol>
+        <p>The official record is the <a href="https://data.gov.ie/en_GB/dataset/national-monuments-service-archaeological-survey-of-ireland" target="_blank" rel="noopener">Sites and Monuments Record</a>, now open data. Forts that carry its number link to their entry.</p>
+        <p>Sources and code: <code>day06_vintage_ring_forts/README.md</code>.</p>
+      </details>
+    </div>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>
