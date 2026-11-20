@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Irish rainfall</title>
+  <meta name="description" content="Each 5 km hexagon fills like a rain gauge from 1 January to 31 December, through an average year (2020–2025) or day by day through 2025, from Met Éireann's 1 km grids.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nathanfranklin.github.io/30daymapchallenge-2026/day20/">
+  <meta property="og:title" content="Irish rainfall">
+  <meta property="og:description" content="Each 5 km hexagon fills like a rain gauge through an average year (2020–2025) or day by day through 2025.">
+  <meta property="og:image" content="https://nathanfranklin.github.io/30daymapchallenge-2026/day20/preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="style.css?v=26">
+  <script src="https://unpkg.com/deck.gl@9.4.0/dist.min.js"></script>
+</head>
+<body>
+  <div id="map" role="region" aria-label="3D hexagon map of rainfall in Ireland filling up over a year"></div>
+
+  <aside id="panel">
+    <button id="toggle" aria-expanded="true" aria-controls="panel-body">Hide panel</button>
+    <div id="panel-body">
+      <p class="kicker">#30DayMapChallenge · Day 20 · Hexagons</p>
+      <h1>Irish rainfall</h1>
+      <p id="intro">Each 5 km hexagon fills like a rain gauge from 1 January, using the mean of 2020–2025.</p>
+
+      <div id="modes" class="modes" role="group" aria-label="Which rain">
+        <button data-mode="avg" aria-pressed="true">Average 2020–2025</button>
+        <button data-mode="2025" aria-pressed="false">2025, day by day</button>
+      </div>
+
+      <div class="actions">
+        <button id="play" aria-pressed="true">❚❚ Pause</button>
+        <span class="note" id="speed-note">One year in 15 seconds</span>
+      </div>
+      <input id="scrub" type="range" min="0" max="1000" value="0" step="1" aria-label="Date">
+      <div class="ticks" aria-hidden="true"><span>Jan</span><span>Apr</span><span>Jul</span><span>Oct</span><span>Dec</span></div>
+
+      <p class="headline">
+        <span class="when">1 Jan to <span id="date">1 Jan</span><span id="year"></span></span>
+        <span class="amount"><span class="label">National mean rainfall:</span> <strong id="national">0 mm</strong></span>
+      </p>
+
+      <div id="gauges" class="gauges" aria-label="Rain so far in Clifden, Galway, Athlone and Dublin"></div>
+
+      <h2>Rain since 1 January <span class="unit">(mm)</span></h2>
+      <div id="legend" class="gradient-legend"></div>
+
+      <details class="story">
+        <summary>About the data</summary>
+        <p>Met Éireann’s 1 km monthly rainfall grids for 2020–2025, averaged per calendar month, then averaged over the 1 km cells whose centres fall in each hexagon. Coastal hexagons are drawn whole; the few that are almost all sea (headland tips, islets) are left out. In the average, rain is spread evenly within each month, since those data are monthly totals. The 2025 view uses Met Éireann’s 1 km daily rainfall grid for 2025, averaged into the same hexagons, so it shows individual storms. Switching keeps the date, so you can pause on a day and compare.</p>
+        <p>Northern Ireland (grey) isn’t in Met Éireann’s grid.</p>
+        <p class="note">Copyright Met Éireann. Source met.ie. This data is published under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">Creative Commons Attribution 4.0 International (CC BY 4.0)</a> licence. Met Éireann does not accept any liability whatsoever for any error or omission in the data, their availability, or for any loss or damage arising from their use. Modified: monthly grids averaged over 2020–2025 and the 2025 daily grid, aggregated to hexagons and accumulated through the year.</p>
+        <p>Static map, sources and code: <code>day20_rainfall_hexagons/README.md</code>. Built with <a href="https://deck.gl/" target="_blank" rel="noopener">deck.gl</a>.</p>
+      </details>
+    </div>
+  </aside>
+
+  <script src="app.js?v=28"></script>
+</body>
+</html>
